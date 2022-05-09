@@ -1,4 +1,4 @@
-package com.example.WorkOUT;
+package com.example.WorkOUT.Controllers;
 
 import org.springframework.data.repository.CrudRepository;
 

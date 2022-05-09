@@ -1,4 +1,4 @@
-package com.example.WorkOUT;
+package com.example.WorkOUT.Controllers;
 
 import java.util.concurrent.atomic.AtomicLong;
 
