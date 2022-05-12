@@ -15,9 +15,6 @@ public class User {
     private String email;
     private String password;
     private String gender;
-    private LocalDate dob;
-    private int participationCounter;
-    private int hostCounter;
 
     public Integer getId() {
         return userID;
@@ -53,29 +50,5 @@ public class User {
 
     public void setGender(String gender) {
         this.gender = gender;
-    }
-
-    public LocalDate getDob() {
-        return dob;
-    }
-
-    public void setDob(LocalDate dob) {
-        this.dob = dob;
-    }
-
-    public int getParticipationCounter() {
-        return participationCounter;
-    }
-
-    public void increaseParticipationCounter() {
-        this.participationCounter++;
-    }
-
-    public int getHostCounter() {
-        return hostCounter;
-    }
-
-    public void increaseHostCounter() {
-        this.hostCounter++;
     }
 }
