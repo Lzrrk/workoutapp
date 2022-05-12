@@ -20,12 +20,12 @@ public class MainController {
             , @RequestParam String email, @RequestParam String password, @RequestParam String gender) {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
-        User n = new User();
-        n.setUsername(username);
-        n.setGender(gender);
-        n.setPassword(password);
-        n.setEmail(email);
-        userRepository.save(n);
+        User u = new User();
+        u.setUsername(username);
+        u.setGender(gender);
+        u.setPassword(password);
+        u.setEmail(email);
+        userRepository.save(u);
         return "Saved";
     }
 
