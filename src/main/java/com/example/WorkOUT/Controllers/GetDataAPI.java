@@ -67,7 +67,7 @@ public class GetDataAPI {
             GymObject retrievedGym = new GymObject(gymName, coordinate, imageID);
             list.add(retrievedGym);
 
-            System.out.println(list);
+            System.out.println(list + "\n");
         }
     }
 
