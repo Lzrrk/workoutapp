@@ -1,10 +1,10 @@
 package com.example.WorkOUT.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Controller // This means that this class is a Controller
 @RequestMapping(path="/demo") // This means URL's start with /demo (after Application path)
@@ -14,58 +14,86 @@ public class MainController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping(path="/all")
-    public @ResponseBody List<User> getAllUsers() throws Throwable {
+    @GetMapping(path = "/all")
+    public @ResponseBody Iterable<User> getAllUsers() throws Throwable {
         // This returns a JSON or XML with the users
         try{
-            List<User> listOfUsers = userRepository.findAll();
-            return listOfUsers;
+            return userRepository.findAll();
         }
         catch (Exception exception){
             throw exception.getCause();
         }
-
-
     }
 
-    @PostMapping(path="/add") // Map ONLY POST Requests
+    @PostMapping(path = "/add") // Map ONLY POST Requests
     public @ResponseBody String addNewUser (@RequestParam String username
-            , @RequestParam String email, @RequestParam String password, @RequestParam String gender) {
+            , @RequestParam String email, @RequestParam String password, @RequestParam String gender) throws Throwable {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
-        try{
+        if(!userRepository.existsByEmail(email)){
+            User user = new User();
+            user.setUsername(username);
+            user.setEmail(email);
+            user.setPassword(password);
+            user.setGender(gender);
+            userRepository.save(user);
+            return "Saved";
+        }
+        return "Error: User already exist!";
+    }
 
+    @PutMapping(path = "/update")
+    public @ResponseBody String updateUser(@RequestParam User user) throws Throwable{
+        try{
+            if (userRepository.existsByUserID(user.getId())){
+             userRepository.save(user);
+             return "User " +user.getId()+ " has been saved!";
+            }
+            return "Error: Could not find the user!";
+        }catch (Exception exception){
+            throw exception.getCause();
+        }
+    }
+
+    @DeleteMapping(path = "/delete")
+    public @ResponseBody String deleteUser (@RequestParam User user) throws Throwable{
+        try{
+            if (userRepository.existsByUserID(user.getId())){
+                userRepository.delete(user);
+                return "User " +user.getId()+ " has been removed!";
+            }
+            return "Error: Could not find the user!";
         }
         catch (Exception exception){
-
+            throw exception.getCause();
         }
-        User user = new User();
-        user.setUsername(username);
-        user.setGender(gender);
-        user.setPassword(password);
-        user.setEmail(email);
-        userRepository.save(user);
-        return "Saved";
     }
 
+    // https://group-10-15.pvt.dsv.su.se/demo/login
+    //@RequestParam String email, @RequestParam String password
 
-
-    @PostMapping(path="/login/{email}/{password}")// Map ONLY POST Requests
-    public @ResponseBody String loginUser (@PathVariable String email, @PathVariable String password) {
+    @PostMapping(path="/login")// Map ONLY POST Requests
+    public @ResponseBody
+    ResponseEntity<Boolean> loginUser (@RequestParam String email, @RequestParam String password) throws Throwable {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
-        User user = new User();
-        user.setEmail(email);
-        user.setPassword(password);
-        userRepository.save(user);
-        return "Logged in";
-    }
 
-    @DeleteMapping(path="/delete")
-    public @ResponseBody String deleteUser (@RequestParam String userName){
-        User user = new User();
-        user.setUsername(userName);
-        userRepository.delete(user);
-        return "Removed";
+        // jdbc:http://localhost:8080/demo/all
+        // jdbc:mysql://mysql.dsv.su.se/lara3892
+
+        try{
+            User user = new User();
+            user.setEmail(email);
+            user.setPassword(password);
+            if (userRepository.existsByEmailAndPassword(user.getEmail(), user.getPassword())){
+                return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+            }
+            else{
+                return new ResponseEntity<Boolean>(false, HttpStatus.OK);
+            }
+        }
+        catch(Exception exception){
+            throw exception.getCause();
+        }
     }
 }
