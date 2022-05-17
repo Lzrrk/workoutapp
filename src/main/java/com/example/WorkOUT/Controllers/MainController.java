@@ -27,7 +27,7 @@ public class MainController {
 
     @PostMapping(path="/add", consumes="application/json", produces = "application/json") // Map ONLY POST Requests
     public @ResponseBody
-    ResponseEntity<User> addNewUser (@RequestParam User user) {
+    ResponseEntity<User> addNewUser (@RequestBody User user) {
         String username = user.getUsername();
         String password = user.getPassword();
         String gender = user.getGender();
@@ -44,7 +44,6 @@ public class MainController {
             user = userRepository.findUserByUsername(username).get(0);
             return new ResponseEntity<>(user, HttpStatus.CONFLICT);
         }
-
         user = new User();
         user.setEmail(email);
         user.setGender(gender);
@@ -53,6 +52,20 @@ public class MainController {
         userRepository.save(user);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
+
+
+
+//    @PostMapping(path="/add", consumes="application/json", produces = "application/json") // Map ONLY POST Requests
+//    public @ResponseBody String addNewUser (
+//            @RequestParam String username, @RequestParam String password, @RequestParam String gender, @RequestParam String email) {
+//            User user = new User();
+//            user.setUsername(username);
+//            user.setEmail(email);
+//            user.setPassword(password);
+//            user.setGender(gender);
+//            userRepository.save(user);
+//            return "Saved";
+//    }
 
     @PutMapping(path = "/update")
     public @ResponseBody String updateUser(@RequestParam User user) throws Throwable{
