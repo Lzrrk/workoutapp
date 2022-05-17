@@ -25,22 +25,33 @@ public class MainController {
         }
     }
 
-    @PostMapping(path = "/add") // Map ONLY POST Requests
-    public @ResponseBody String addNewUser (@RequestParam String username
-            , @RequestParam String email, @RequestParam String password, @RequestParam String gender) throws Throwable {
-        // @ResponseBody means the returned String is the response, not a view name
-        // @RequestParam means it is a parameter from the GET or POST request
+    @PostMapping(path="/add", consumes="application/json", produces = "application/json") // Map ONLY POST Requests
+    public @ResponseBody
+    ResponseEntity<User> addNewUser (@RequestParam User user) {
+        String username = user.getUsername();
+        String password = user.getPassword();
+        String gender = user.getGender();
+        String email = user.getEmail();
 
-        if(!userRepository.existsByEmail(email)){
-            User user = new User();
-            user.setUsername(username);
-            user.setEmail(email);
-            user.setPassword(password);
-            user.setGender(gender);
-            userRepository.save(user);
-            return "Saved";
+        boolean emailExists = userRepository.existsByEmail(email);
+        if (emailExists) {
+            user = userRepository.findUserByEmail(email).get(0);
+            return new ResponseEntity<>(user, HttpStatus.CONFLICT);
         }
-        return "Error: User already exist!";
+
+        boolean usernameExists = userRepository.existsByUsername(username);
+        if (usernameExists) {
+            user = userRepository.findUserByUsername(username).get(0);
+            return new ResponseEntity<>(user, HttpStatus.CONFLICT);
+        }
+
+        user = new User();
+        user.setEmail(email);
+        user.setGender(gender);
+        user.setPassword(password);
+        user.setUsername(username);
+        userRepository.save(user);
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
     @PutMapping(path = "/update")
