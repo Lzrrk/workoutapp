@@ -73,28 +73,22 @@ public class MainController {
     // https://group-10-15.pvt.dsv.su.se/demo/login
     //@RequestParam String email, @RequestParam String password
 
-    @PostMapping(path="/login")// Map ONLY POST Requests
+    @PostMapping(path="/login", consumes="application/json", produces="application/json"
+    )// Map ONLY POST Requests
     public @ResponseBody
-    ResponseEntity<Boolean> loginUser (@RequestParam String email, @RequestParam String password) throws Throwable {
+    ResponseEntity<Boolean> loginUser (@RequestBody User user) {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
 
-        // jdbc:http://localhost:8080/demo/all
+        // jdbc:http://localhost:8080/demo/login
         // jdbc:mysql://mysql.dsv.su.se/lara3892
+        //@RequestParam String email, @RequestParam String password
 
-        try{
-            User user = new User();
-            user.setEmail(email);
-            user.setPassword(password);
-            if (userRepository.existsByEmailAndPassword(user.getEmail(), user.getPassword())){
-                return new ResponseEntity<Boolean>(true, HttpStatus.OK);
-            }
-            else{
-                return new ResponseEntity<Boolean>(false, HttpStatus.OK);
-            }
+        if (userRepository.existsByEmailAndPassword(user.getEmail(), user.getPassword())){
+            return new ResponseEntity<>(true, HttpStatus.OK);
         }
-        catch(Exception exception){
-            throw exception.getCause();
+        else{
+            return new ResponseEntity<>(false, HttpStatus.OK);
         }
     }
 }
