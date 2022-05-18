@@ -7,20 +7,37 @@ import org.json.simple.parser.JSONParser;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 import com.programmerare.sweden_crs_transformations_4jvm.CrsProjection;
 import com.programmerare.sweden_crs_transformations_4jvm.CrsCoordinate;
 
 public class GetDataAPI {
+
     private ArrayList<GymObject> gymObjectList = new ArrayList<>();
+    private List<GymObject> allGymInfo = new ArrayList<>();
 
     public static void main(String[] args) {
         GetDataAPI getDataAPI = new GetDataAPI();
         getDataAPI.loadFromAPI();
     }
+
+    public ArrayList<GymObject> getGymObjectList() {
+        return gymObjectList;
+    }
+
+    public List<GymObject> getAllGymInfo(){
+        return allGymInfo;
+    }
+
+/*    public Map<String, String> getAllGymData() {
+        Map<String,String> map = new HashMap<>();
+        map.put("key1", );
+        map.put("key2", "value2");
+    }
+    */
+
+
 
     private void loadFromAPI() {
         try {
@@ -66,9 +83,10 @@ public class GetDataAPI {
 
             GymObject retrievedGym = new GymObject(gymName, coordinate, imageID);
             list.add(retrievedGym);
-
-            System.out.println(list);
+            //System.out.println(list);
         }
+        allGymInfo = list;
+        System.out.println(allGymInfo);
     }
 
     private CrsCoordinate getCoordinate(JSONObject location) {
@@ -91,4 +109,6 @@ public class GetDataAPI {
         scanner.close();
         return informationString.toString();
     }
+
+
 }
