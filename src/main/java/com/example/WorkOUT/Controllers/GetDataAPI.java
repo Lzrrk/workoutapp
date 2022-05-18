@@ -39,7 +39,7 @@ public class GetDataAPI {
 
 
 
-    private void loadFromAPI() {
+    public void loadFromAPI() {
         try {
             URL url = new URL("https://apigw.stockholm.se/NoAuth/VirtualhittaserviceDMZ/Rest/serviceunits?&filter[servicetype.id]=122&page[limit]=1500&page[offset]=0&sort=name");
 
