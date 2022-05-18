@@ -20,6 +20,7 @@ public class GymAPIController {
     @GetMapping(path = "/apigym")
     public @ResponseBody List<GymObject> getAllApiLocation() {
         GetDataAPI getData = new GetDataAPI();
+        getData.loadFromAPI();
         return getData.getAllGymInfo();
     }
 
