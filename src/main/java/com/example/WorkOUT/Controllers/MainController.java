@@ -17,19 +17,20 @@ public class MainController {
     private UserRepository userRepository;
 
     @GetMapping(path = "/all")
-    public @ResponseBody Iterable<User> getAllUsers() throws Throwable {
+    public @ResponseBody
+    Iterable<User> getAllUsers() throws Throwable {
         // This returns a JSON or XML with the users
-        try{
+        try {
             return userRepository.findAll();
-        }
-        catch (Exception exception){
+        } catch (Exception exception) {
             throw exception.getCause();
         }
     }
 
-    @PostMapping(path="/add", consumes="application/json", produces = "application/json") // Map ONLY POST Requests
+
+    @PostMapping(path = "/add", consumes = "application/json", produces = "application/json") // Map ONLY POST Requests
     public @ResponseBody
-    ResponseEntity<User> addNewUser (@RequestBody User user) {
+    ResponseEntity<User> addNewUser(@RequestBody User user) {
         String username = user.getUsername();
         String password = user.getPassword();
         String gender = user.getGender();
@@ -56,7 +57,6 @@ public class MainController {
     }
 
 
-
 //    @PostMapping(path="/add", consumes="application/json", produces = "application/json") // Map ONLY POST Requests
 //    public @ResponseBody String addNewUser (
 //            @RequestParam String username, @RequestParam String password, @RequestParam String gender, @RequestParam String email) {
@@ -70,44 +70,44 @@ public class MainController {
 //    }
 
     @PutMapping(path = "/update")
-    public @ResponseBody String updateUser(@RequestParam User user) throws Throwable{
-        try{
-            if (userRepository.existsByUserID(user.getId())){
+    public @ResponseBody
+    String updateUser(@RequestParam User user) throws Throwable {
+        try {
+            if (userRepository.existsByUserID(user.getId())) {
                 userRepository.save(user);
-                return "User " +user.getId()+ " has been saved!";
+                return "User " + user.getId() + " has been saved!";
             }
             return "Error: Could not find the user!";
-        }catch (Exception exception){
+        } catch (Exception exception) {
             throw exception.getCause();
         }
     }
 
     @DeleteMapping(path = "/delete")
-    public @ResponseBody String deleteUser (@RequestParam User user) throws Throwable{
-        try{
-            if (userRepository.existsByUserID(user.getId())){
+    public @ResponseBody
+    String deleteUser(@RequestParam User user) throws Throwable {
+        try {
+            if (userRepository.existsByUserID(user.getId())) {
                 userRepository.delete(user);
-                return "User " +user.getId()+ " has been removed!";
+                return "User " + user.getId() + " has been removed!";
             }
             return "Error: Could not find the user!";
-        }
-        catch (Exception exception){
+        } catch (Exception exception) {
             throw exception.getCause();
         }
     }
 
-    @PostMapping(path="/login", consumes="application/json", produces="application/json")
+    @PostMapping(path = "/login", consumes = "application/json", produces = "application/json")
     public @ResponseBody
-    ResponseEntity<Boolean> loginUser (@RequestBody User user) {
-        if (userRepository.existsByEmailAndPassword(user.getEmail(), user.getPassword())){
+    ResponseEntity<Boolean> loginUser(@RequestBody User user) {
+        if (userRepository.existsByEmailAndPassword(user.getEmail(), user.getPassword())) {
             return new ResponseEntity<>(true, HttpStatus.OK);
-        }
-        else{
+        } else {
             return new ResponseEntity<>(false, HttpStatus.OK);
         }
     }
 
-    @GetMapping(path = "/usernameinfo", consumes="application/json", produces="application/json")
+    /*@GetMapping(path = "/usernameinfo", consumes="application/json", produces="application/json")
     public @ResponseBody ResponseEntity<String> getUsernameInfo(@RequestBody User user) {
         if (userRepository.existsByEmail(user.getEmail())){
             return new ResponseEntity<>(user.getUsername(), HttpStatus.OK);
@@ -115,5 +115,32 @@ public class MainController {
         else {
             return new ResponseEntity<>(null, HttpStatus.OK);
         }
+    }*/
+
+
+    //Rebecca test - med Robert: fungerar
+    @GetMapping(path = "/username", produces = "application/json")
+    public @ResponseBody
+    ResponseEntity<User> getUsernameInfoRebecca(@RequestParam String email) {
+        if (userRepository.existsByEmail(email)) {
+            return new ResponseEntity<>(userRepository.findUserByEmail(email).get(0), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
     }
+
+
+
+
+
+    /*@GetMapping(path = "/userName")
+    @ResponseBody
+    public String getFoos(@RequestParam String id) {
+        if (userRepository.existsByEmail(user.getEmail())){
+            return new ResponseEntity<>(user.getUsername(), HttpStatus.OK);
+        }
+        else {
+            return new ResponseEntity<>(null, HttpStatus.OK);
+        }
+    }*/
 }
