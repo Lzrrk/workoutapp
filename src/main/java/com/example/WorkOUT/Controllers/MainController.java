@@ -103,7 +103,7 @@ public class MainController {
             return new ResponseEntity<>(true, HttpStatus.OK);
         }
         else{
-            return new ResponseEntity<>(false, HttpStatus.OK);
+            return new ResponseEntity<>(false, HttpStatus.BAD_REQUEST);
         }
     }
 
