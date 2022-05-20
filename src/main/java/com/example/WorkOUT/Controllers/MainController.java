@@ -56,19 +56,6 @@ public class MainController {
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
-
-//    @PostMapping(path="/add", consumes="application/json", produces = "application/json") // Map ONLY POST Requests
-//    public @ResponseBody String addNewUser (
-//            @RequestParam String username, @RequestParam String password, @RequestParam String gender, @RequestParam String email) {
-//            User user = new User();
-//            user.setUsername(username);
-//            user.setEmail(email);
-//            user.setPassword(password);
-//            user.setGender(gender);
-//            userRepository.save(user);
-//            return "Saved";
-//    }
-
     @PutMapping(path = "/update")
     public @ResponseBody
     String updateUser(@RequestParam User user) throws Throwable {
@@ -117,6 +104,16 @@ public class MainController {
         }
     }*/
 
+    @GetMapping(path = "/usernamee", produces = "application/json")
+    public @ResponseBody
+    ResponseEntity<User> getUsernameInfo(@RequestParam String username) {
+        if (userRepository.existsByEmail(username)) {
+            return new ResponseEntity<>(userRepository.findUserByUsername(username).get(0), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
+
 
     //Rebecca test - med Robert: fungerar
     @GetMapping(path = "/username", produces = "application/json")
@@ -128,10 +125,6 @@ public class MainController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
-
-
-
-
 
     /*@GetMapping(path = "/userName")
     @ResponseBody

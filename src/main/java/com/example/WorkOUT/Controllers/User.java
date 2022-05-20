@@ -19,10 +19,6 @@ public class User {
         return userID;
     }
 
-    public void setId(Integer id) {
-        this.userID = id;
-    }
-
     public String getUsername() {
         return username;
     }
