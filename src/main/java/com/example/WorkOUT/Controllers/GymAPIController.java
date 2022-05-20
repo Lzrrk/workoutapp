@@ -20,10 +20,9 @@ public class GymAPIController {
     @GetMapping(path = "/apigym")
     public @ResponseBody List<GymObject> getAllApiLocation() {
         GetDataAPI getData = new GetDataAPI();
-        GetDataAPI.loadFromAPI();
+        getData.loadFromAPI();
         return getData.getAllGymInfo();
     }
-
 
 /*    @RequestMapping(value = "/greeting", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody List<Greeting> greeting() {
