@@ -16,6 +16,9 @@ public class MainController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private EventRepository eventRepository;
+
     @GetMapping(path = "/all")
     public @ResponseBody Iterable<User> getAllUsers() throws Throwable {
         // This returns a JSON or XML with the users
@@ -46,7 +49,7 @@ public class MainController {
             user = userRepository.findUserByUsername(username).get(0);
             return new ResponseEntity<>(user, HttpStatus.CONFLICT);
         }
-        user = new User();
+        //user = new User();
         user.setEmail(email);
         user.setGender(gender);
         user.setPassword(password);
@@ -98,22 +101,23 @@ public class MainController {
 
     @PostMapping(path="/login", consumes="application/json", produces="application/json")
     public @ResponseBody
-    ResponseEntity<Boolean> loginUser (@RequestBody User user) {
-        if (userRepository.existsByEmailAndPassword(user.getEmail(), user.getPassword())){
-            return new ResponseEntity<>(true, HttpStatus.OK);
+    ResponseEntity<User> loginUser (@RequestBody User user) {
+        User newUser = userRepository.findByEmailAndPassword(user.getEmail(), user.getPassword());
+        if (newUser == null){
+            return new ResponseEntity<>(null, HttpStatus.FORBIDDEN);
         }
         else{
-            return new ResponseEntity<>(false, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(newUser, HttpStatus.OK);
         }
     }
 
-    @GetMapping(path = "/usernameinfo", consumes="application/json", produces="application/json")
-    public @ResponseBody ResponseEntity<String> getUsernameInfo(@RequestBody User user) {
-        if (userRepository.existsByEmail(user.getEmail())){
-            return new ResponseEntity<>(user.getUsername(), HttpStatus.OK);
+    @GetMapping(path = "/event/all")
+    public @ResponseBody Iterable<Event> allEvent() throws Throwable{
+        try{
+            return eventRepository.findAll();
         }
-        else {
-            return new ResponseEntity<>(null, HttpStatus.OK);
+        catch (Exception exception){
+            throw exception;
         }
     }
 }

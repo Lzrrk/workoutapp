@@ -22,22 +22,9 @@ public class GetDataAPI {
         getDataAPI.loadFromAPI();
     }
 
-    public ArrayList<GymObject> getGymObjectList() {
-        return gymObjectList;
-    }
-
     public List<GymObject> getAllGymInfo(){
         return allGymInfo;
     }
-
-/*    public Map<String, String> getAllGymData() {
-        Map<String,String> map = new HashMap<>();
-        map.put("key1", );
-        map.put("key2", "value2");
-    }
-    */
-
-
 
     public void loadFromAPI() {
         try {
@@ -64,6 +51,7 @@ public class GetDataAPI {
             JSONArray dataArray = (JSONArray) dataObject.get("data");
 
             fillGymObjectList(dataArray, gymObjectList);
+            System.out.println(dataArray);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -86,7 +74,7 @@ public class GetDataAPI {
             //System.out.println(list);
         }
         allGymInfo = list;
-        System.out.println(allGymInfo);
+        //System.out.println(allGymInfo);
     }
 
     private CrsCoordinate getCoordinate(JSONObject location) {
