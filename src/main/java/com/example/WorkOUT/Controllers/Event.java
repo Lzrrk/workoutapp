@@ -1,6 +1,7 @@
 package com.example.WorkOUT.Controllers;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Event {
@@ -8,97 +9,92 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer eventID;
     private String eventName;
-    private int eventHost;
-    private String eventStartTime;
-    private String eventEndTime;
-    private String eventLocation; // Not sure of variable type
-    private String eventCategory;
-    private String eventDescription;
-    private int eventMinPartic;
-    private int eventMaxPartic;
-    private int eventTotalPartic;
+    private String startDate;
+    private String startTimeAndEndTime;
+    private String eventLocation;
+    private String describeEvent;
+    private String numberOfParticipants;
+    private String workoutLevel;
+
+    @ManyToMany
+    Set<User> participants;
+
+    public Event(){
+
+    }
+
+    public Event(Integer eventID, String eventName, String startDate, String startTimeAndEndTime, String eventLocation, String describeEvent, String numberOfParticipants, String workoutLevel) {
+        this.eventID = eventID;
+        this.eventName = eventName;
+        this.startDate = startDate;
+        this.startTimeAndEndTime = startTimeAndEndTime;
+        this.eventLocation = eventLocation;
+        this.describeEvent = describeEvent;
+        this.numberOfParticipants = numberOfParticipants;
+        this.workoutLevel = workoutLevel;
+    }
 
     public Integer getEventID() {
         return eventID;
+    }
+
+    public void setEventID(Integer eventID) {
+        this.eventID = eventID;
     }
 
     public String getEventName() {
         return eventName;
     }
 
-    public int getEventHost() {
-        return eventHost;
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
     }
 
-    public String getEventStartTime() {
-        return eventStartTime;
+    public String getStartDate() {
+        return startDate;
     }
 
-    public String getEventEndTime() {
-        return eventEndTime;
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getStartTimeAndEndTime() {
+        return startTimeAndEndTime;
+    }
+
+    public void setStartTimeAndEndTime(String startTimeAndEndTime) {
+        this.startTimeAndEndTime = startTimeAndEndTime;
     }
 
     public String getEventLocation() {
         return eventLocation;
     }
 
-    public String getEventCategory() {
-        return eventCategory;
-    }
-
-    public String getEventDescription() {
-        return eventDescription;
-    }
-
-    public int getEventMinPartic() {
-        return eventMinPartic;
-    }
-
-    public int getEventMaxPartic() {
-        return eventMaxPartic;
-    }
-
-    public int getEventTotalPartic() {
-        return eventTotalPartic;
-    }
-
-    public void setEventName(String eventName) {
-        this.eventName = eventName;
-    }
-
-    public void setEventHost(int eventHost) {
-        this.eventHost = eventHost;
-    }
-
-    public void setEventStartTime(String eventStartTime) {
-        this.eventStartTime = eventStartTime;
-    }
-
-    public void setEventEndTime(String eventEndTime) {
-        this.eventEndTime = eventEndTime;
-    }
-
     public void setEventLocation(String eventLocation) {
         this.eventLocation = eventLocation;
     }
 
-    public void setEventCategory(String eventCategory) {
-        this.eventCategory = eventCategory;
+    public String getDescribeEvent() {
+        return describeEvent;
     }
 
-    public void setEventDescription(String eventDescription) {
-        this.eventDescription = eventDescription;
+    public void setDescribeEvent(String describeEvent) {
+        this.describeEvent = describeEvent;
     }
 
-    public void setEventMinPartic(int eventMinPartic) {
-        this.eventMinPartic = eventMinPartic;
+    public String getNumberOfParticipants() {
+        return numberOfParticipants;
     }
 
-    public void setEventMaxPartic(int eventMaxPartic) {
-        this.eventMaxPartic = eventMaxPartic;
+    public void setNumberOfParticipants(String numberOfParticipants) {
+        this.numberOfParticipants = numberOfParticipants;
     }
 
-    public void setEventTotalPartic(int eventTotalPartic) {
-        this.eventTotalPartic = eventTotalPartic;
+    public String getWorkoutLevel() {
+        return workoutLevel;
+    }
+
+    public void setWorkoutLevel(String workoutLevel) {
+        this.workoutLevel = workoutLevel;
     }
 }

@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @Controller // This means that this class is a Controller
 @RequestMapping(path="/demo") // This means URL's start with /demo (after Application path)
@@ -37,6 +36,7 @@ public class MainController {
         String password = user.getPassword();
         String gender = user.getGender();
         String email = user.getEmail();
+        //String describe = user.getDescribe();
 
         boolean emailExists = userRepository.existsByEmail(email);
         if (emailExists) {
@@ -54,25 +54,12 @@ public class MainController {
         user.setGender(gender);
         user.setPassword(password);
         user.setUsername(username);
+        //user.setDescribe(describe);
         userRepository.save(user);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
-
-
-//    @PostMapping(path="/add", consumes="application/json", produces = "application/json") // Map ONLY POST Requests
-//    public @ResponseBody String addNewUser (
-//            @RequestParam String username, @RequestParam String password, @RequestParam String gender, @RequestParam String email) {
-//            User user = new User();
-//            user.setUsername(username);
-//            user.setEmail(email);
-//            user.setPassword(password);
-//            user.setGender(gender);
-//            userRepository.save(user);
-//            return "Saved";
-//    }
-
-    @PutMapping(path = "/update")
+/*    @PutMapping(path = "/update")
     public @ResponseBody String updateUser(@RequestParam User user) throws Throwable{
         try{
             if (userRepository.existsByUserID(user.getId())){
@@ -83,9 +70,9 @@ public class MainController {
         }catch (Exception exception){
             throw exception.getCause();
         }
-    }
+    }*/
 
-    @DeleteMapping(path = "/delete")
+/*    @DeleteMapping(path = "/delete")
     public @ResponseBody String deleteUser (@RequestParam User user) throws Throwable{
         try{
             if (userRepository.existsByUserID(user.getId())){
@@ -97,7 +84,7 @@ public class MainController {
         catch (Exception exception){
             throw exception.getCause();
         }
-    }
+    }*/
 
     @PostMapping(path="/login", consumes="application/json", produces="application/json")
     public @ResponseBody
@@ -119,5 +106,28 @@ public class MainController {
         catch (Exception exception){
             throw exception;
         }
+    }
+
+    @PostMapping(path="/event/add", consumes="application/json", produces = "application/json")
+    public @ResponseBody
+    ResponseEntity<Event> addNewEvent (@RequestBody Event event) {
+        String eventName = event.getEventName();
+        String eventStartDate = event.getStartDate();
+        String eventStartTimeAndEndTime = event.getStartTimeAndEndTime();
+        String eventLocation = event.getEventLocation();
+        String describeEvent = event.getDescribeEvent();
+        String numberOfParticipants = event.getNumberOfParticipants();
+        String workoutLevel = event.getWorkoutLevel();
+
+        event.setEventName(eventName);
+        event.setStartDate(eventStartDate);
+        event.setStartTimeAndEndTime(eventStartTimeAndEndTime);
+        event.setEventLocation(eventLocation);
+        event.setDescribeEvent(describeEvent);
+        event.setNumberOfParticipants(numberOfParticipants);
+        event.setWorkoutLevel(workoutLevel);
+
+        eventRepository.save(event);
+        return new ResponseEntity<>(event, HttpStatus.OK);
     }
 }

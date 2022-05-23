@@ -1,10 +1,20 @@
 package com.example.WorkOUT.Controllers;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+/*
+
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.url=jdbc:mysql://mysql.dsv.su.se/josa5094
+spring.datasource.username=josa5094
+spring.datasource.password=quoh2luuXeeH
+
+ */
+
 
 @Entity
 public class User {
@@ -15,12 +25,17 @@ public class User {
     private String email;
     private String password;
     private String gender;
+    private String describe;
 
-    public User(String username, String email, String password, String gender) {
+    @ManyToMany
+    Set<Event> createEvents;
+
+    public User(String username, String email, String password, String gender, String describe) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.gender = gender;
+        this.describe = describe;
     }
 
     public User() {
@@ -63,4 +78,8 @@ public class User {
     public void setGender(String gender) {
         this.gender = gender;
     }
+
+    public String getDescribe(){ return describe; }
+
+    public void setDescribe(String newDescribe){ this.describe = newDescribe; }
 }
