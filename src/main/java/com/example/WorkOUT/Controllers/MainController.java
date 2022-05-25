@@ -122,7 +122,7 @@ public class MainController {
         String workoutGoals = event.getWorkoutGoals();
 
         if(eventStartTime.isAfter(eventEndTime)){
-            System.out.println("Error: Start time cannot be before the end time!");
+            System.out.println("Error: Start time can't be before the end time!");
             return new ResponseEntity<>(null, HttpStatus.FORBIDDEN);
         }
 
