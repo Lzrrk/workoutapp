@@ -6,6 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+
 
 @Controller // This means that this class is a Controller
 @RequestMapping(path="/demo") // This means URL's start with /demo (after Application path)
@@ -112,22 +114,29 @@ public class MainController {
     public @ResponseBody
     ResponseEntity<Event> addNewEvent (@RequestBody Event event) {
         String eventName = event.getEventName();
-        String eventStartDate = event.getStartDate();
-        String eventStartTimeAndEndTime = event.getStartTimeAndEndTime();
+        LocalDateTime eventStartTime = event.getStartTime();    // yyyy-mm-ddThh:mm --> Example: 2022-01-01T20:00
+        LocalDateTime eventEndTime = event.getEndTime();        // yyyy-mm-ddThh:mm --> Example: 2022-01-01T22:00
         String eventLocation = event.getEventLocation();
         String describeEvent = event.getDescribeEvent();
         String numberOfParticipants = event.getNumberOfParticipants();
-        String workoutLevel = event.getWorkoutLevel();
+        String workoutGoals = event.getWorkoutGoals();
+
+        if(eventStartTime.isAfter(eventEndTime)){
+            System.out.println("Error: Start time cannot be before the end time!");
+            return new ResponseEntity<>(null, HttpStatus.FORBIDDEN);
+        }
 
         event.setEventName(eventName);
-        event.setStartDate(eventStartDate);
-        event.setStartTimeAndEndTime(eventStartTimeAndEndTime);
+        event.setStartTime(eventStartTime);
+        event.setEndTime(eventEndTime);
         event.setEventLocation(eventLocation);
         event.setDescribeEvent(describeEvent);
         event.setNumberOfParticipants(numberOfParticipants);
-        event.setWorkoutLevel(workoutLevel);
+        event.setWorkoutGoals(workoutGoals);
 
         eventRepository.save(event);
+        //eventRepository.findEventsByEventHostID(event.getEventHost());
+
         return new ResponseEntity<>(event, HttpStatus.OK);
     }
 }

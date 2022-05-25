@@ -3,17 +3,9 @@ package com.example.WorkOUT.Controllers;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-/*
-
-spring.jpa.hibernate.ddl-auto=update
-spring.datasource.url=jdbc:mysql://mysql.dsv.su.se/josa5094
-spring.datasource.username=josa5094
-spring.datasource.password=quoh2luuXeeH
-
- */
 
 
 @Entity
@@ -28,7 +20,12 @@ public class User {
     private String describe;
 
     @ManyToMany
-    Set<Event> createEvents;
+    List<Event> myCreatedEvents = new ArrayList<>();
+
+    @ManyToMany
+    List<Event> myUpcomingEvents = new ArrayList<>();
+
+
 
     public User(String username, String email, String password, String gender, String describe) {
         this.username = username;
@@ -82,4 +79,8 @@ public class User {
     public String getDescribe(){ return describe; }
 
     public void setDescribe(String newDescribe){ this.describe = newDescribe; }
+
+    public void addEventToCreateEventList(Event event){
+        myCreatedEvents.add(event);
+    }
 }

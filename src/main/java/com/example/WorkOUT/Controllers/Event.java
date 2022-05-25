@@ -1,6 +1,9 @@
 package com.example.WorkOUT.Controllers;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -9,29 +12,33 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer eventID;
     private String eventName;
-    private String startDate;
-    private String startTimeAndEndTime;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
     private String eventLocation;
     private String describeEvent;
     private String numberOfParticipants;
-    private String workoutLevel;
+    private String workoutGoals;
+    private String eventHost;
+
 
     @ManyToMany
-    Set<User> participants;
+    List<User> participants = new ArrayList<>();
+
 
     public Event(){
 
     }
 
-    public Event(Integer eventID, String eventName, String startDate, String startTimeAndEndTime, String eventLocation, String describeEvent, String numberOfParticipants, String workoutLevel) {
+    public Event(Integer eventID, String eventName, LocalDateTime startTime, LocalDateTime endTime, String eventLocation, String describeEvent, String numberOfParticipants, String workoutGoals, String eventHost) {
         this.eventID = eventID;
         this.eventName = eventName;
-        this.startDate = startDate;
-        this.startTimeAndEndTime = startTimeAndEndTime;
+        this.startTime = startTime;
+        this.endTime = endTime;
         this.eventLocation = eventLocation;
         this.describeEvent = describeEvent;
         this.numberOfParticipants = numberOfParticipants;
-        this.workoutLevel = workoutLevel;
+        this.workoutGoals = workoutGoals;
+        this.eventHost = eventHost;
     }
 
     public Integer getEventID() {
@@ -50,20 +57,20 @@ public class Event {
         this.eventName = eventName;
     }
 
-    public String getStartDate() {
-        return startDate;
+    public LocalDateTime getStartTime() {
+        return LocalDateTime.parse(startTime.toString());
     }
 
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
+    public void setStartTime(LocalDateTime startTime) {
+        this.startTime = startTime;
     }
 
-    public String getStartTimeAndEndTime() {
-        return startTimeAndEndTime;
+    public LocalDateTime getEndTime() {
+        return LocalDateTime.parse(endTime.toString());
     }
 
-    public void setStartTimeAndEndTime(String startTimeAndEndTime) {
-        this.startTimeAndEndTime = startTimeAndEndTime;
+    public void setEndTime(LocalDateTime endTime) {
+        this.endTime = endTime;
     }
 
     public String getEventLocation() {
@@ -90,11 +97,17 @@ public class Event {
         this.numberOfParticipants = numberOfParticipants;
     }
 
-    public String getWorkoutLevel() {
-        return workoutLevel;
+    public String getWorkoutGoals() {
+        return workoutGoals;
     }
 
-    public void setWorkoutLevel(String workoutLevel) {
-        this.workoutLevel = workoutLevel;
+    public void setWorkoutGoals(String workoutLevel) {
+        this.workoutGoals = workoutLevel;
+    }
+
+    public String getEventHost(){ return eventHost; }
+
+    public void setEventHost(String newHost ){
+        eventHost = newHost;
     }
 }
