@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="806fad6c-2e06-4fbb-951e-d4662963a9e5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WorkOUT/Class/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WorkOUT/Class/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WorkOUT/Class/GymObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WorkOUT/Class/GymObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WorkOUT/Class/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WorkOUT/Class/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WorkOUT/Controller/EventController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WorkOUT/Controller/EventController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WorkOUT/Controller/GymAPIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WorkOUT/Controller/GymAPIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WorkOUT/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WorkOUT/Controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WorkOUT/Repository/EventRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WorkOUT/Repository/EventRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WorkOUT/Repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WorkOUT/Repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WorkOUT/Service/EventService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WorkOUT/Service/EventService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WorkOUT/Service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WorkOUT/Service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/WorkOUT/WorkOutApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/WorkOUT/WorkOutApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/WorkOUT/Repository/EventRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/WorkOUT/Repository/EventRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/WorkOUT/Repository/UserRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/WorkOUT/Repository/UserRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/WorkOUT/Service/EventServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/WorkOUT/Service/EventServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/WorkOUT/Service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/WorkOUT/Service/UserServiceTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="AnnotationType" />
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="29bTi0GRL1ogFrVeivBqCk9JXs9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/com/example/WorkOUT" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.WorkOUT.Controllers" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Project\Backend\src\test" />
+      <recent name="C:\Project\Backend\src\test\resources" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.WorkOUT.Service" />
+      <recent name="com.example.WorkOUT.Repository" />
+      <recent name="com.example.WorkOUT.User" />
+      <recent name="com.example.WorkOUT.Event" />
+      <recent name="com.example.WorkOUT.Controllers" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.UserServiceTest (1)">
+    <configuration name="EventRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WorkOUT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.WorkOUT.Repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.WorkOUT.Repository" />
+      <option name="MAIN_CLASS_NAME" value="com.example.WorkOUT.Repository.EventRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EventServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WorkOUT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.WorkOUT.Service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.WorkOUT.Service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.WorkOUT.Service.EventServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WorkOUT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.WorkOUT.Repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.WorkOUT.Repository" />
+      <option name="MAIN_CLASS_NAME" value="com.example.WorkOUT.Repository.UserRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WorkOUT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.WorkOUT.Service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.WorkOUT.Service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.WorkOUT.Service.UserServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.testAddNewUserSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WorkOUT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.WorkOUT.Service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.WorkOUT.Service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.WorkOUT.Service.UserServiceTest" />
+      <option name="METHOD_NAME" value="testAddNewUserSuccess" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WorkOutApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="WorkOUT" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.WorkOUT.WorkOutApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.UserServiceTest (1)" />
+        <item itemvalue="JUnit.EventServiceTest" />
+        <item itemvalue="JUnit.UserRepositoryTest" />
+        <item itemvalue="JUnit.EventRepositoryTest" />
+        <item itemvalue="JUnit.UserServiceTest.testAddNewUserSuccess" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="806fad6c-2e06-4fbb-951e-d4662963a9e5" name="Changes" comment="" />
+      <created>1653380908797</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1653380908797</updated>
+      <workItem from="1653380910029" duration="149000" />
+      <workItem from="1653381072426" duration="7984000" />
+      <workItem from="1653421788847" duration="1825000" />
+      <workItem from="1653482620683" duration="2965000" />
+      <workItem from="1653493226942" duration="252000" />
+      <workItem from="1653494024270" duration="1603000" />
+      <workItem from="1653808279256" duration="3629000" />
+      <workItem from="1653816856972" duration="15765000" />
+      <workItem from="1653839415391" duration="5683000" />
+      <workItem from="1653847177755" duration="17458000" />
+      <workItem from="1653866588670" duration="1155000" />
+      <workItem from="1653927793172" duration="149000" />
+      <workItem from="1653940687171" duration="1734000" />
+      <workItem from="1654079312298" duration="768000" />
+      <workItem from="1654080097385" duration="6000" />
+      <workItem from="1654080158189" duration="258000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Backend$UserServiceTest__1_.ic" NAME="UserServiceTest (1) Coverage Results" MODIFIED="1653860373822" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.example.WorkOUT.Service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Backend$EventRepositoryTest.ic" NAME="EventRepositoryTest Coverage Results" MODIFIED="1653860459018" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.example.WorkOUT.Repository.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Backend$UserRepositoryTest.ic" NAME="UserRepositoryTest Coverage Results" MODIFIED="1653826543721" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.example.WorkOUT.Controllers.*</FILTER>
+    </SUITE>
+  </component>
+</project>
